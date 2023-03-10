@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/joaoidc/Rick-Morty/static/css/main.2c4a7a95.css",
-    "main.js": "/joaoidc/Rick-Morty/static/js/main.2f7137b6.js",
-    "static/js/787.28cb0dcd.chunk.js": "/joaoidc/Rick-Morty/static/js/787.28cb0dcd.chunk.js",
-    "index.html": "/joaoidc/Rick-Morty/index.html",
-    "main.2c4a7a95.css.map": "/joaoidc/Rick-Morty/static/css/main.2c4a7a95.css.map",
-    "main.2f7137b6.js.map": "/joaoidc/Rick-Morty/static/js/main.2f7137b6.js.map",
-    "787.28cb0dcd.chunk.js.map": "/joaoidc/Rick-Morty/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/Rick-Morty/static/css/main.2c4a7a95.css",
+    "main.js": "/Rick-Morty/static/js/main.8cb7aa26.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Rick-Morty/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/Rick-Morty/index.html",
+    "main.2c4a7a95.css.map": "/Rick-Morty/static/css/main.2c4a7a95.css.map",
+    "main.8cb7aa26.js.map": "/Rick-Morty/static/js/main.8cb7aa26.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Rick-Morty/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2c4a7a95.css",
-    "static/js/main.2f7137b6.js"
+    "static/js/main.8cb7aa26.js"
   ]
 }
