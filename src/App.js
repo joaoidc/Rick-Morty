@@ -1,12 +1,20 @@
-import './App.css';
-
-import { useState, useEffect } from 'react';
+import React from 'react';
+import { useSpring, animated } from 'react-spring';
 
 function CharacterDetails() {
   const [character, setCharacter] = useState(null);
   const [characterId, setCharacterId] = useState(1);
   const [error, setError] = useState(null);
   const [maxId, setMaxId] = useState(null);
+  const props = useSpring({
+    from: { transform: 'rotate(0deg)' },
+    to: async (next) => {
+      const response = await axios.get(`https://rickandmortyapi.com/api/character/${characterId}`);
+      const data = await response.json();
+      setCharacter(data);
+      next({ transform: 'rotate(360deg)' });
+    },
+  });
 
   const handleInputChange = (event) => {
     const value = parseInt(event.target.value);
@@ -15,6 +23,10 @@ function CharacterDetails() {
     } else {
       setCharacterId(value);
     }
+  };
+
+  const handleResetClick = () => {
+    setCharacterId(0);
   };
 
   useEffect(() => {
@@ -28,23 +40,8 @@ function CharacterDetails() {
       }
     }
 
-    async function fetchCharacter() {
-      if (characterId === 0) {
-        return;
-      }
-
-      try {
-        const response = await fetch(`https://rickandmortyapi.com/api/character/${characterId}`);
-        const data = await response.json();
-        setCharacter(data);
-      } catch (error) {
-        setError(error);
-      }
-    }
-
     fetchMaxId();
-    fetchCharacter();
-  }, [characterId]);
+  }, []);
 
   if (error) {
     return <div>Oops, something went wrong: {error.message}</div>;
@@ -68,8 +65,9 @@ function CharacterDetails() {
         <div className='input'>
           <label htmlFor="character-id">Escreva um ID: </label>
           <input id="character-id" value={characterId} onChange={handleInputChange} />
+          <button onClick={handleResetClick} role="button" class="button-name">Apagar</button>
         </div>
-        <div className='card shadow'>
+        <animated.div className='card shadow' style={props}>
           <img className='imagem' src={character.image} alt={character.name} />
           <div className='textos'>
             <h1>{character.name}</h1>
@@ -81,7 +79,7 @@ function CharacterDetails() {
               <p>Localização: {character.location.name}</p>
             </div>
           </div>
-        </div>
+        </animated.div>
       </div>
     </div>
   );
